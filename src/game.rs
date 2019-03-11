@@ -1,10 +1,10 @@
-use piston_window::*;
 use piston_window::types::Color;
+use piston_window::*;
 
 use rand::{thread_rng, Rng};
 
-use crate::snake::{Direction, Snake};
 use crate::draw::{draw_block, draw_rectangle};
+use crate::snake::{Direction, Snake};
 
 const FOOD_COLOR: Color = [0.80, 0.00, 0.00, 1.0];
 const BORDER_COLOR: Color = [0.00, 0.00, 0.00, 1.00];
@@ -29,14 +29,16 @@ pub struct Game {
 
 impl Game {
     pub fn new(width: i32, height: i32) -> Game {
-        snake: Snake::new(2, 2),
-        waiting_time: 0.0,
-        food_exists: true,
-        food_x: 6,
-        food_y: 4,
-        width,
-        height,
-        game_over: false,
+        Game {
+            snake: Snake::new(2, 2),
+            waiting_time: 0.0,
+            food_exists: true,
+            food_x: 6,
+            food_y: 4,
+            width,
+            height,
+            game_over: false,
+        }
     }
 
     pub fn key_pressed(&mut self, key: Key) {
@@ -113,11 +115,11 @@ impl Game {
         next_x > 0 && next_y > 0 && next_x < self.width - 1 && next_y < self.height - 1
     }
 
-    fn add_food (&mut self) {
+    fn add_food(&mut self) {
         let mut rng = thread_rng();
 
         let mut new_x = rng.gen_range(1, self.width - 1);
-        let mut new_y = rng.gen_range(1, self.width -1);
+        let mut new_y = rng.gen_range(1, self.width - 1);
         while self.snake.overlap_tail(new_x, new_y) {
             new_x = rng.gen_range(1, self.width - 1);
             new_y = rng.gen_range(1, self.width - 1);
