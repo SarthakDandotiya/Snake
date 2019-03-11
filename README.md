@@ -1,5 +1,7 @@
 # Snake Game Built in Rust
 
+![Rust](image.png)
+
 ## Install Rust
 
 Refer the [official website](https://www.rust-lang.org/tools/install)
