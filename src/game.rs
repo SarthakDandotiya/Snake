@@ -74,7 +74,7 @@ impl Game {
         draw_rectangle(BORDER_COLOR, self.width - 1, 0, 1, self.height, con, g);
 
         if self.game_over {
-            draw_rectangle(BORDER_COLOR, 0, 0, self.width, self.height, con, g);
+            draw_rectangle(GAMEOVER_COLOR, 0, 0, self.width, self.height, con, g);
         }
     }
 
